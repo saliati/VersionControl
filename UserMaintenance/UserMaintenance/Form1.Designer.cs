@@ -44,12 +44,13 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(364, 72);
+            this.label1.Location = new System.Drawing.Point(344, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 25);
             this.label1.TabIndex = 1;
@@ -59,7 +60,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(364, 125);
+            this.label2.Location = new System.Drawing.Point(344, 125);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 25);
             this.label2.TabIndex = 2;
@@ -67,16 +68,16 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(455, 75);
+            this.textBox1.Location = new System.Drawing.Point(520, 75);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(267, 22);
+            this.textBox1.Size = new System.Drawing.Size(239, 22);
             this.textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(455, 125);
+            this.textBox2.Location = new System.Drawing.Point(520, 125);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(267, 22);
+            this.textBox2.Size = new System.Drawing.Size(239, 22);
             this.textBox2.TabIndex = 4;
             // 
             // listBox1
