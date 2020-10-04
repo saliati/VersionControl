@@ -18,15 +18,18 @@ namespace ExcelExportalas04
         RealEstateEntities context = new RealEstateEntities();
         List<Flat> Flats; //LINQ műveletek lokálisan kerülnek kiszámolásra a szerver terhelése nélkül
 
+
+        Excel.Application xlApp; // A Microsoft Excel alkalmazás
+        Excel.Workbook xlWB; // A létrehozott munkafüzet
+        Excel.Worksheet xlSheet; // Munkalap a munkafüzeten belül
+
         public Form1()
         {
             InitializeComponent();
             LoadData();
             //CreateExcel();
+            
 
-            Excel.Application xlApp; // A Microsoft Excel alkalmazás
-            Excel.Workbook xlWB; // A létrehozott munkafüzet
-            Excel.Worksheet xlSheet; // Munkalap a munkafüzeten belül
 
         }
 
@@ -37,7 +40,57 @@ namespace ExcelExportalas04
 
         /*private void CreateExcel()
         {
-            
+           try
+              {
+                // Excel elindítása és az applikáció objektum betöltése
+                xlApp = new Excel.Application();
+
+                // Új munkafüzet
+                xlWB = xlApp.Workbooks.Add(Missing.Value);
+
+                // Új munkalap
+                xlSheet = xlWB.ActiveSheet;
+
+                CreateTable(); 
+
+                xlApp.Visible = true;
+                xlApp.UserControl = true;
+              }
+
+            catch (Exception ex) // Hibakezelés a beépített hibaüzenettel
+                {
+                    string errMsg = string.Format("Error: {0}\nLine: {1}", ex.Message, ex.Source);
+                    MessageBox.Show(errMsg, "Error");
+
+                    // Hiba esetén az Excel applikáció bezárása automatikusan
+                    xlWB.Close(false, Type.Missing, Type.Missing);
+                    xlApp.Quit(); //Excel alkalmazás
+                    xlWB = null;  //Excel munkafüzet
+                    xlApp = null;
+                }  
         }*/
+
+        private void CreateTable() //munkalap beállításai
+        {
+            string[] headers = new string[]
+            {
+                 "Kód",
+                 "Eladó",
+                 "Oldal",
+                 "Kerület",
+                 "Lift",
+                 "Szobák száma",
+                 "Alapterület (m2)",
+                 "Ár (mFt)",
+                 "Négyzetméter ár (Ft/m2)"
+            };
+
+            for (int i = 0; i < 9; i++)
+            {
+                xlSheet.Cells[1, i+1] = headers[i];
+            }
+
+            object[,] values = new object[Flats.Count, headers.Length];
+        }
     }
 }
