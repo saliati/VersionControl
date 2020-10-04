@@ -12,9 +12,20 @@ namespace ExcelExportalas04
 {
     public partial class Form1 : Form
     {
+
+        RealEstateEntities context = new RealEstateEntities();
+        List<Flat> Flats; //LINQ műveletek lokálisan kerülnek kiszámolásra a szerver terhelése nélkül
+
         public Form1()
         {
             InitializeComponent();
+            LoadData();
+
+        }
+
+        private void LoadData()
+        {
+            Flats = context.Flats.ToList();
         }
     }
 }
