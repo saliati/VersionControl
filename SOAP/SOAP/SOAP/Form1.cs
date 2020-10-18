@@ -19,10 +19,19 @@ namespace SOAP
     public partial class Form1 : Form
     {
         BindingList<RateData> Rates = new BindingList<RateData>();
+        //BindingList<string> currencies = new BindingList<string>();
+
 
         public Form1() //form1 konstruktora
         {
             InitializeComponent();
+            //comboBox1.DataSource = currencies;
+            RefreshData();
+        }
+
+        public void RefreshData() 
+        {
+            Rates.Clear();
             dataGridView1.DataSource = Rates;
 
             fuggXml();
@@ -38,9 +47,13 @@ namespace SOAP
 
             var request = new GetExchangeRatesRequestBody()
             {
-                currencyNames = "EUR",
+                /*currencyNames = "EUR",
                 startDate = "2020-01-01",
-                endDate = "2020-06-30"
+                endDate = "2020-06-30"*/
+
+                currencyNames = Convert.ToString(comboBox1.SelectedItem),
+                startDate = Convert.ToString(dateTimePicker1.Value),
+                endDate = Convert.ToString(dateTimePicker2.Value)
             };
 
             var response = mnbService.GetExchangeRates(request);
@@ -93,6 +106,21 @@ namespace SOAP
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshData();
         }
     }
 }
