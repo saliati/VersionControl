@@ -1,4 +1,5 @@
-﻿using SOAP.MnbServiceReference;
+﻿using SOAP.Entities;
+using SOAP.MnbServiceReference;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,12 @@ namespace SOAP
         public Form1() //form1 konstruktora
         {
             InitializeComponent();
+
+            BindingList<RateData> Rates = new BindingList<RateData>();
+
+            DataGridView datagridview1 = new DataGridView();
+            datagridview1.DataSource = Rates;
+            
 
             //2020-as év első félévének euró árfolyamának lekérdezése
 
