@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing
+using System.Drawing;
 
 namespace Christmas.Entities
 {
-    class Ball: Label
+    public class Ball: Label
     {
         public Ball()
         {
