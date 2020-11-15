@@ -11,11 +11,16 @@ namespace Christmas.Entities
 {
     public class Ball : Toy
     {
+        public SolidBrush BallColor { get; set; }
+        public Ball(Color color)
+        {
+            BallColor = new SolidBrush(color);
+        }
 
         protected override void DrawImage(Graphics g) //PROTECTED => ball osztály bármelyik leszármazottja használhatja 
         {
-            g.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
+            g.FillEllipse(BallColor, 0, 0, Width, Height);
         }
-
+        
     }   
 }
