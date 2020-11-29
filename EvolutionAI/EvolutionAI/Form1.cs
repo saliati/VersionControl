@@ -28,7 +28,10 @@ namespace EvolutionAI
             this.Controls.Add(ga);
 
             //List<Player> pl = new List<Player>(10);
-            gc.AddPlayer(nbrOfSteps) ;
+            for (int i = 0; i < populationSize; i++)
+            {
+                gc.AddPlayer(nbrOfSteps);
+            }
             gc.Start();
 
             gc.GameOver += Gc_GameOver;
